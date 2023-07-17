@@ -206,7 +206,7 @@ begin
   end;
   if gameReg = 1 then
   begin
-    DrawConsole('Выберите карту левой и правой стрелкой и нажмите Enter + move: ' + curMove.ToString + ' attack: ' + curAttack.ToString);
+    DrawConsole('Управление: L,R,U стрелки, Enter,Esc. Move: ' + curMove.ToString + ' attack: ' + curAttack.ToString);
   end;
   if gameReg > 1 then
   begin
