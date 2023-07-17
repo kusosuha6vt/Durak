@@ -35,7 +35,7 @@ begin
   DrawConsole('Заставка. Подождите');
   
   Redraw;
-  Sleep(50);
+  Sleep(3000);
 end;
 
 procedure DrawHelp; forward;
@@ -79,7 +79,7 @@ begin
   var y2 := 150;
   SetFontColor(clBlack);
   
-  SetBrushColor(clPink);
+  SetBrushColor(clSeaShell);
   RoundRect(x1, y1, x2, y2, 30, 30);
   SetFontSize(15);
   DrawTextCentered(x1, y1, x2, y2, 'Начать игру (1)');
@@ -107,20 +107,20 @@ end;
 
 procedure DrawHelp;  // Вывод экрана помощи
 begin
-  SetBrushColor(clPink);
-  var x1 := 300;
-  var x2 := 600;
+  SetBrushColor(clSeaShell);
+  var x1 := 100;
+  var x2 := 800;
   var y1 := 50;
   var y2 := 550;
   RoundRect(x1, y1, x2, y2, 30, 30);
   SetFontSize(15);
-  DrawTextCentered(x1, y1, x2, y2, 'TODO');
+  DrawTextCentered(x1, y1, x2, y2, 'Игроки начинают ход по часовой стрелке. Каждый игрок сбрасывает либо по одной карте, либо все имеющиеся карты одинакового достоинства — оппонент должен «побить» выложенные карты, положив свои на карту/карты другого игрока (они должны быть достоинством выше, кроме козырных. Козырные карты бьются козырем старшего достоинства); Количество сбрасываемых карт ограничивается только размерами колоды и имеющимися картами в руках. Если игроку нечем «бить» карты соперника, то он обязан забрать все выложенные карты себе в руку. Если в колоде кончаются карты, игроки разыгрывают все имеющиеся у них в руке; Игра продолжается до тех пор, пока кто-то из игроков не опустошит свою руку самым первым.');
   DrawConsole('Нажмите на любую клавишу для выхода в главное меню');
 end;
 
 procedure DrawRecords();  // Вывод экрана рекордов
 begin
-  SetBrushColor(clPink);
+  SetBrushColor(clSeaShell);
   var x1 := 50;
   var x2 := 850;
   var y1 := 50;
@@ -138,7 +138,7 @@ begin
   SetFontSize(25);
   for var i := 0 to data.Length - 1 do begin // выводим рекорды
     TextOut(x1, y1, data[i].name);
-    TextOut(x2, y2, data[i].points);
+    TextOut(x2, y2, data[i].moves);
     y1 += 45;
     y2 += 45;
   end;

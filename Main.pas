@@ -6,12 +6,6 @@ begin
   Window.CenterOnScreen;
   SetConsoleIO;  /// Чтобы выводить отладочную информацию
   LockDrawing;  /// Чтобы не было мерцания
-  var c: CardR;
-  c.front := true;
-  c.rank := 6;
-  c.suit := Hearts;
-  DrawCard(c);
-  Redraw;
   DrawStartup;  /// Заставка
   var mode := 0;  /// 0 -> Меню, 1 -> Игра
   while true do   /// Пока не нажат выход

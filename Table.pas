@@ -4,19 +4,19 @@ interface
 
 type recordR = record
   name: string;
-  points: integer;
+  moves: integer;
 end;
 
-const filename = 'records.txt';
+const filename = 'table.txt';
 
 function loadRecords: array of recordR;
-procedure addRecord(name: string; points: integer);
+procedure addRecord(name: string; moves: integer);
 
 implementation
 
 function compareKey(x: recordR): integer;
 begin
-  Result := -x.points;  // сортируем по убыванию очков
+  Result := x.moves;  // сортируем по убыванию очков
 end;
 
 function loadRecords: array of recordR;
@@ -31,7 +31,7 @@ begin
   var i := 0;
   while i < lines.Length do begin  // Копируем всю информацию
     data[i].name := lines[i].Split(';')[0];
-    lines[i].Split(';')[1].TryToInteger(data[i].points);
+    lines[i].Split(';')[1].TryToInteger(data[i].moves);
     i += 1;
   end;
   Sort(data, compareKey);  //  Сортируем результаты
@@ -42,11 +42,11 @@ begin
   Result := data;
 end;
 
-procedure addRecord(name: string; points: integer);
+procedure addRecord(name: string; moves: integer);
 begin
   var f := OpenAppend(filename);
   // char 10 - перенос строки
-  f.Write('' + char(10) + name + ';' + points);
+  f.Write('' + char(10) + name + ';' + moves);
   CloseFile(f);
 end;
 
