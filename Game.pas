@@ -502,7 +502,8 @@ begin
   if (stock.Length = 0) and ((playerHand.Length = 0) or (computerHand.Length = 0)) then
   begin
     gameReg := 2;  //  конец игры
-    addRecord(name, moves);
+    if (playerHand.Length = 0) then
+      addRecord(name, moves);
     exit;
   end;
   moves += 1;
